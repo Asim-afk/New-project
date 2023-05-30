@@ -8,7 +8,13 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/About" element={<About />} />
