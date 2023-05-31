@@ -1,0 +1,29 @@
+.button {
+  width: 150px;
+  height: 45px;
+  display: block;
+
+  background: linear-gradient(to right, darkred 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover {
+  background-position: left bottom;
+}
+
+.text {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 9px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #323a40;
+  transition: all 0.2s ease-out;
+  display: block;
+}
+
+.text:hover {
+  color: white;
+}
