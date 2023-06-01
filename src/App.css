@@ -1,6 +1,27 @@
 #root {
   background-color: white;
-  max-width: 1780px;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 0px;
+}
+
+.carousel {
+  height: 600px;
+  object-fit: contain !important;
+}
+.carousel .carousel-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .carousel-image {
+  max-height: auto;
 }
