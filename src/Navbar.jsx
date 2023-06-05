@@ -1,122 +1,116 @@
-import MenuIcon from "@mui/icons-material/Menu";
-import {
-  AppBar,
-  Box,
-  Button,
-  CssBaseline,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import PropTypes from "prop-types";
-import { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap";
+import React from "react";
+
 import { Link } from "react-router-dom";
 
-const drawerWidth = 240;
-const navItems = ["Home", "About", "Category"];
-
-function DrawerAppBar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton
-              sx={{ textAlign: "center" }}
-              component={Link}
-              to={`/${item.toLowerCase()}`}
-            >
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
+const navItems = [
+  { label: "Home", children: [] },
+  { label: "About", children: [] },
+  {
+    label: "Category",
+    children: [
+      { label: "Subcategory 1" },
+      { label: "Subcategory 2" },
+      { label: "Subcategory 3" },
+    ],
+  },
+  {
+    label: "About School",
+    children: [
+      { label: "Subcategory 1" },
+      { label: "Subcategory 2" },
+      { label: "Subcategory 3" },
+    ],
+  },
+  { label: "Contact Us", children: [] },
+];
+const paddingBox = { px: { xs: 2, xl: 38 } };
+export default function BootAppBar() {
   return (
     <>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar sx={{ backgroundColor: "white" }} component="nav">
-          <Toolbar>
-            <IconButton
-              color="black"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography> */}
-            <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item}
-                  sx={{ color: "#323a40" }}
-                  component={Link}
-                  to={`/${item.toLowerCase()}`}
-                >
-                  {item}
-                </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
+      <div
+        style={{
+          backgroundColor: "#003169",
+          color: "white",
+          height: "40px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          className="container d-flex justify-content-between"
+          sx={{ px: { xs: 1, xl: 16 } }}
+        >
+          <Typography>011-441426</Typography>
+          <Typography>“Shree Bhaleshwor Secondary School”</Typography>
+          <Typography>bhaleshwor2014@gmail.com</Typography>
         </Box>
-      </Box>
+      </div>
+      <nav className="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+        <Box sx={paddingBox} className="container-fluid">
+          <img className="navbar-brand" src="/@assets/react.svg" />
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav mx-auto">
+              {" "}
+              {/* Apply mx-auto class */}
+              {navItems.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item.children.length ? (
+                    <li key={index} className="nav-item dropdown">
+                      <a
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        {item.label}
+                      </a>
+                      <ul className="dropdown-menu">
+                        {item.children.map((childItem, childIndex) => (
+                          <li key={childIndex}>
+                            <Link
+                              className="dropdown-item"
+                              to={childItem.label
+                                .replace(" ", "-")
+                                .toLowerCase()}
+                            >
+                              {childItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ) : (
+                    <li key={index} className="nav-item">
+                      <Link
+                        className="nav-link active"
+                        aria-current="page"
+                        to={item.label.replace(" ", "-").toLowerCase()}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  )}
+                </React.Fragment>
+              ))}
+            </ul>
+          </div>
+        </Box>
+      </nav>
     </>
   );
 }
-
-DrawerAppBar.propTypes = {
-  window: PropTypes.func,
-};
-
-export default DrawerAppBar;

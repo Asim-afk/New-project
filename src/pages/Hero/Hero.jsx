@@ -8,15 +8,18 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import Events from "./Components/Events";
+import Info from "./Components/Info";
 export default function Hero() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      offset: 200,
+      offset: 100,
     });
   }, []);
+
   const headerAnimate = "flip-left";
+  const iconCss = { fontSize: { xs: 60, xl: 80 }, color: "white" };
   return (
     <>
       <Grid>
@@ -32,7 +35,7 @@ export default function Hero() {
           <div className="carousel-item">
             <img
               src="/@assets/img/a.jpg"
-              alt="Image 1 "
+              alt="Image 1"
               className="carousel-image"
             />
           </div>
@@ -73,40 +76,40 @@ export default function Hero() {
           container
           sx={{
             backgroundColor: "#002147",
-            px: 30,
+            px: { xl: 30, xs: 2 },
             py: 5,
           }}
         >
-          <Grid item xl={3}>
+          <Grid sx={{ py: { xs: 3, xl: 0 } }} item xs={12} xl={3}>
             <div data-aos={headerAnimate}>
-              <Diversity3Icon sx={{ fontSize: "80px", color: "white" }} />
+              <Diversity3Icon sx={iconCss} />
               <br />
               <Typography variant="h6" sx={{ color: "white" }}>
                 Friendly Environment
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3}>
+          <Grid sx={{ py: { xs: 5, xl: 0 } }} item xs={12} xl={3}>
             <div data-aos={headerAnimate}>
-              <WorkspacePremiumIcon sx={{ fontSize: "80px", color: "white" }} />
+              <WorkspacePremiumIcon sx={iconCss} />
               <br />
               <Typography variant="h6" sx={{ color: "white" }}>
                 60+ years
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3}>
+          <Grid sx={{ py: { xs: 5, xl: 0 } }} item xs={12} xl={3}>
             <div data-aos={headerAnimate}>
-              <DevicesIcon sx={{ fontSize: "80px", color: "white" }} />
+              <DevicesIcon sx={iconCss} />
               <br />
               <Typography variant="h6" sx={{ color: "white" }}>
                 Modern Education
               </Typography>
             </div>
           </Grid>
-          <Grid item xl={3}>
+          <Grid sx={{ py: { xs: 5, xl: 0 } }} item xs={12} xl={3}>
             <div data-aos={headerAnimate}>
-              <SchoolIcon sx={{ fontSize: "80px", color: "white" }} />
+              <SchoolIcon sx={iconCss} />
               <br />
               <Typography variant="h6" sx={{ color: "white" }}>
                 Quality Education
@@ -114,6 +117,8 @@ export default function Hero() {
             </div>
           </Grid>
         </Grid>
+        <Info />
+        <Events />
       </Grid>
     </>
   );

@@ -68,26 +68,28 @@ export default function Locations() {
     },
   ];
   return (
-    <div>
+    <>
       <Box
-        component="footer"
         sx={{
           backgroundColor: "#f5f5f5",
           py: 2,
           px: {
-            xs: 0,
-            xl: 35,
+            xs: 10,
+            xl: 37,
           },
           textAlign: "center",
         }}
       >
         <Grid
           container
-          spacing={2}
-          justifyContent="center"
-          sx={{ maxWidth: "xl", mx: "auto", marginTop: 3 }}
+          spacing={{ xs: 0, xl: 2 }}
+          sx={{
+            maxWidth: "xl",
+            mx: "auto",
+            marginTop: 3,
+          }}
         >
-          <Grid item xs={12} md={3} xl={3}>
+          <Grid item sx={{ mb: 3 }} xs={12} md={3} xl={3}>
             <Typography
               variant="h6"
               sx={{
@@ -119,7 +121,7 @@ export default function Locations() {
               </Grid>
             ))}
           </Grid>
-          <Grid item xs={12} md={3} xl={3}>
+          <Grid item sx={{ mb: 3 }} xs={12} md={3} xl={3}>
             <Typography
               variant="h6"
               sx={{
@@ -149,7 +151,7 @@ export default function Locations() {
               </Grid>
             ))}
           </Grid>
-          <Grid item xs={12} md={3} xl={3}>
+          <Grid item sx={{ mb: 3 }} xs={12} md={3} xl={3}>
             <Typography
               variant="h6"
               sx={{
@@ -224,17 +226,18 @@ export default function Locations() {
             >
               Get in Touch
             </Typography>
-            <a href="" style={{ textAlign: "left" }}>
+            <a href="" target="_blank" style={{ textAlign: "left" }}>
               <FacebookIcon sx={{ color: "#0c88ef", justifySelf: "left" }} />
             </a>
-            <YouTubeIcon sx={{ color: "red" }} />
+            <a href="" target="_blank" style={{ textAlign: "left" }}>
+              <YouTubeIcon sx={{ color: "red" }} />
+            </a>
           </Grid>
         </Grid>
         <Grid
           container
-          spacing={2}
           justifyContent="center"
-          sx={{ maxWidth: "xl", mx: "auto", marginTop: "50px" }}
+          sx={{ maxWidth: "xl", mx: "auto", marginTop: "40px" }}
         >
           <Grid item xs={12} md={6} xl={8}>
             <Typography
@@ -268,6 +271,6 @@ export default function Locations() {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }
