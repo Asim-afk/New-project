@@ -35,7 +35,7 @@ export default function Footer() {
           <Grid item sx={{ textAlign: "right" }}>
             <div className="outer">
               <div className="button">
-                <Link to={"/contacts"} className="text">
+                <Link to={"/contact-us"} className="text">
                   <Typography style={{ fontWeight: "bolder" }}>
                     Let&apos;s Talk&nbsp;&nbsp;&nbsp;
                     <ArrowForwardIosIcon sx={{ fontSize: 10 }} />

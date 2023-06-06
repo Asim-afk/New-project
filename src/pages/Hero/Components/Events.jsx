@@ -116,15 +116,19 @@ export default function Events() {
         container
         sx={{ px: { xl: 35, xs: 5 }, marginTop: 1, marginBottom: 8 }}
       >
-        <Grid item xs={12} xl={6}>
+        <Grid item xs={12} xl={6} style={{ overflow: "hidden" }}>
           <Link to="/">
-            <div data-aos="fade-right" className="image-with-text-container">
+            <div
+              data-aos="fade-right"
+              className="image-with-text-container"
+              style={{ overflow: "hidden" }}
+            >
               <img src="/@assets/img/b.jpg" alt="img" />
               <Typography>hello world</Typography>
             </div>
           </Link>
         </Grid>
-        <Grid item xs={12} xl={6}>
+        <Grid item xs={12} xl={6} style={{ overflow: "hidden" }}>
           <Link to="/">
             <div data-aos="fade-left" className="image-with-text-container">
               <img src="/@assets/img/b.jpg" alt="img" />

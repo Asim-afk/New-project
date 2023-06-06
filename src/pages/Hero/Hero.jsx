@@ -32,24 +32,31 @@ export default function Hero() {
           dynamicHeight={true}
           autoPlay={true}
         >
-          <div className="carousel-item">
+          <div>
             <img
               src="/@assets/img/a.jpg"
               alt="Image 1"
               className="carousel-image"
             />
           </div>
-          <div className="carousel-item">
+          <div>
             <img
               src="/@assets/img/b.jpg"
               alt="Image 2"
               className="carousel-image"
             />
           </div>
-          <div className="carousel-item">
+          <div>
             <img
               src="/@assets/img/c.jpg"
               alt="Image 3"
+              className="carousel-image"
+            />
+          </div>
+          <div>
+            <img
+              src="/@assets/img/a.jpg"
+              alt="Image 4"
               className="carousel-image"
             />
           </div>
