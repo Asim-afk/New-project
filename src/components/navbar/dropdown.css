@@ -1,48 +1,35 @@
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
+.dropdownCustom {
   float: left;
   overflow: hidden;
 }
 
-.dropdown .dropbtn {
+.dropdownCustom .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
-  padding: 14px 16px;
+  color: black;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  padding: 8px;
 }
 
 .navbar a:hover,
-.dropdown:hover .dropbtn {
-  background-color: red;
+.dropdownCustom:hover .dropbtn {
+  transform: scale(1.1);
+  background-color: rgb(204, 227, 247);
 }
 
-.dropdown-content {
+.dropdownCustom-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdownCustom-content a {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -51,10 +38,18 @@
   text-align: left;
 }
 
-.dropdown-content a:hover {
+.dropdownCustom-content a:hover {
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdownCustom:hover .dropdownCustom-content {
   display: block;
+}
+
+@media (width <= 991.98px) {
+  .navbar a:hover,
+  .dropdownCustom:hover .dropbtn {
+    transform: scale(1);
+    background-color: rgb(204, 227, 247);
+  }
 }

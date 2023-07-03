@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./dropdown.css";
 
 const navItems = [
   { label: "Home", children: [] },
@@ -28,6 +28,19 @@ const navItems = [
 ];
 const paddingBox = { px: { xs: 2, xl: 38 } };
 export default function BootAppBar() {
+  const [windowSize, setWindowSize] = useState([window.innerWidth]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  console.log(windowSize);
   return (
     <>
       <div
@@ -65,35 +78,56 @@ export default function BootAppBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mx-auto">
-              {" "}
-              {/* Apply mx-auto class */}
               {navItems.map((item, index) => (
                 <React.Fragment key={index}>
                   {item.children.length ? (
-                    <li key={index} className="nav-item dropdown">
-                      <a
-                        className="nav-link dropdown-toggle"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        {item.label}
-                      </a>
-                      <ul className="dropdown-menu">
-                        {item.children.map((childItem, childIndex) => (
-                          <li key={childIndex}>
-                            <Link
-                              className="dropdown-item"
-                              to={childItem.label
-                                .replace(" ", "-")
-                                .toLowerCase()}
-                            >
-                              {childItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
+                    windowSize[0] >= 992 ? (
+                      <div key={index} className="dropdownCustom">
+                        <button className="dropbtn">
+                          {item.label}
+                          <i className="fa fa-caret-down"></i>
+                        </button>
+                        <div className="dropdownCustom-content">
+                          {item.children.map((childItem, childIndex) => (
+                            <li key={childIndex}>
+                              <Link
+                                className="dropdown-item"
+                                to={childItem.label
+                                  .replace(" ", "-")
+                                  .toLowerCase()}
+                              >
+                                {childItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <li key={index} className="nav-item dropdown">
+                        <a
+                          className="nav-link dropdown-toggle"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          {item.label}
+                        </a>
+                        <ul className="dropdown-menu">
+                          {item.children.map((childItem, childIndex) => (
+                            <li key={childIndex}>
+                              <Link
+                                className="dropdown-item"
+                                to={childItem.label
+                                  .replace(" ", "-")
+                                  .toLowerCase()}
+                              >
+                                {childItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    )
                   ) : (
                     <li key={index} className="nav-item">
                       <Link
