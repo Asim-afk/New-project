@@ -3,21 +3,12 @@ import Diversity3Icon from "@mui/icons-material/Diversity3";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import { Grid, Typography } from "@mui/material";
-import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Events from "./Components/Events";
 import Info from "./Components/Info";
 export default function Hero() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      offset: 100,
-    });
-  }, []);
-
   const headerAnimate = "flip-left";
   const iconCss = { fontSize: { xs: 60, xl: 80 }, color: "white" };
   return (

@@ -1,13 +1,23 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Navbar";
 import Footer from "./components/Footer";
+import Navbar from "./components/navbar/Navbar";
 import About from "./pages/About";
 import Category from "./pages/Category";
 import Contact from "./pages/ContactUs/Contact";
 import Hero from "./pages/Hero/Hero";
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      offset: 50,
+    });
+    AOS.refresh();
+  }, []);
   return (
     <>
       <Navbar />

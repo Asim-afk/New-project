@@ -7,14 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 export default function Info() {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
   const heads = [
     {
       pic: "/@assets/img/a.jpg",

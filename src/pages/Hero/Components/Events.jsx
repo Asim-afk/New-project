@@ -7,16 +7,10 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 export default function Events() {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
   const currDate = new Date();
   const events = [
     {
