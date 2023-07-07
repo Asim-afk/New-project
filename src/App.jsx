@@ -1,7 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
@@ -24,9 +24,9 @@ function App() {
       <div>
         <Routes>
           <Route path="/home" element={<Hero />} />
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/category" element={<Category />} />
+          <Route index element={<Navigate to="/home" />} />
+          <Route path="/about/:id" element={<About />} />
+          <Route path="/category/:id" element={<Category />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
       </div>

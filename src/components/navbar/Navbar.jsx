@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./dropdown.css";
 
 const navItems = [
@@ -19,9 +19,9 @@ const navItems = [
   {
     label: "About School",
     children: [
-      { label: "Subcategory 1" },
-      { label: "Subcategory 2" },
-      { label: "Subcategory 3" },
+      { label: "aboutsub 1" },
+      { label: "aboutsub 2" },
+      { label: "aboutsub 3" },
     ],
   },
   { label: "Contact Us", children: [] },
@@ -90,14 +90,19 @@ export default function BootAppBar() {
                         <div className="dropdownCustom-content">
                           {item.children.map((childItem, childIndex) => (
                             <li key={childIndex}>
-                              <Link
+                              <NavLink
+                                style={({ isActive }) => {
+                                  return {
+                                    color: isActive ? "#d92627" : "inherit",
+                                  };
+                                }}
                                 className="dropdown-item"
                                 to={childItem.label
                                   .replace(" ", "-")
                                   .toLowerCase()}
                               >
                                 {childItem.label}
-                              </Link>
+                              </NavLink>
                             </li>
                           ))}
                         </div>
@@ -115,14 +120,19 @@ export default function BootAppBar() {
                         <ul className="dropdown-menu">
                           {item.children.map((childItem, childIndex) => (
                             <li key={childIndex}>
-                              <Link
+                              <NavLink
+                                style={({ isActive }) => {
+                                  return {
+                                    color: isActive ? "#d92627" : "inherit",
+                                  };
+                                }}
                                 className="dropdown-item"
                                 to={childItem.label
                                   .replace(" ", "-")
                                   .toLowerCase()}
                               >
                                 {childItem.label}
-                              </Link>
+                              </NavLink>
                             </li>
                           ))}
                         </ul>
@@ -130,13 +140,18 @@ export default function BootAppBar() {
                     )
                   ) : (
                     <li key={index} className="nav-item">
-                      <Link
+                      <NavLink
+                        style={({ isActive }) => {
+                          return {
+                            color: isActive ? "#d92627" : "inherit",
+                          };
+                        }}
                         className="nav-link active"
                         aria-current="page"
                         to={item.label.replace(" ", "-").toLowerCase()}
                       >
                         {item.label}
-                      </Link>
+                      </NavLink>
                     </li>
                   )}
                 </React.Fragment>
