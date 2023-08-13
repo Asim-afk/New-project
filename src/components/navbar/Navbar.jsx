@@ -17,7 +17,7 @@ const navItems = [
     ],
   },
   {
-    label: "About School",
+    label: "About",
     children: [
       { label: "aboutsub 1" },
       { label: "aboutsub 2" },
@@ -39,8 +39,6 @@ export default function BootAppBar() {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-
-  console.log(windowSize);
   return (
     <>
       <div
@@ -97,9 +95,9 @@ export default function BootAppBar() {
                                   };
                                 }}
                                 className="dropdown-item"
-                                to={childItem.label
+                                to={`${item.label.toLowerCase()}/${childItem.label
                                   .replace(" ", "-")
-                                  .toLowerCase()}
+                                  .toLowerCase()}`}
                               >
                                 {childItem.label}
                               </NavLink>

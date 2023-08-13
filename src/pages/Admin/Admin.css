@@ -1,0 +1,70 @@
+#root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navTitle {
+  color: whitesmoke;
+  font-size: 24px;
+  height: 50px;
+  border-bottom: 1px solid rgba(168, 216, 219, 0.532);
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+  height: 0px !important;
+}
+.navElement {
+  color: aliceblue;
+  font-size: 20px;
+  border: none;
+  background-color: inherit;
+  display: block;
+  width: 100%;
+  padding: 10px 0px;
+  transition: color 0.3s ease;
+}
+.sideNav {
+  background-color: #2a3f54;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  overflow-y: scroll;
+  transition: transform 0.3s ease-out;
+  scrollbar-color: darkgray lightgray;
+}
+.sideNav::-webkit-scrollbar {
+  width: 8px;
+}
+.sideNav::-webkit-scrollbar-track {
+  background: #2a3f54;
+}
+.sideNav::-webkit-scrollbar-thumb {
+  background: rgba(169, 169, 169, 0.305);
+  border-radius: 4px;
+}
+.sideNav::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.305);
+}
+.sideNav.visible {
+  transform: translateX(-250px);
+}
+.adminOutlet {
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* adjust the shadow values as per your preference */
+}
+.navElement:hover {
+  color: aliceblue;
+}
+.outletBackground {
+  background-color: #f7f7f7;
+  padding: 20px;
+  height: 93vh;
+}
+.adminNavTop {
+  background-color: #ededed;
+  height: 50px;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  padding: 0px 20px;
+  justify-content: space-between;
+  align-items: center;
+}

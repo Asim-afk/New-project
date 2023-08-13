@@ -17,7 +17,8 @@
 .navbar a:hover,
 .dropdownCustom:hover .dropbtn {
   transform: scale(1.1);
-  background-color: rgb(204, 227, 247);
+  background-color: rgba(116, 138, 236, 0.127);
+  border-radius: 5px;
 }
 
 .dropdownCustom-content {
